@@ -38,8 +38,9 @@
         <h1>L6 · Composition Plan</h1>
 
         <p>
-            Complete one row for every positioned, layered, clipped, rounded,
-            or shape-wrapped element. Duplicate rows as needed.
+            This plan documents each positioned, layered, clipped, rounded,
+            or shape-wrapped element used in The Forgotten Handheld. Rows are
+            updated as each enhancement is implemented and tested.
         </p>
 
         <table>
@@ -58,62 +59,181 @@
             <tbody>
                 <tr>
                     <td>Header generation badge</td>
+
                     <td>
                         Identifies the time span and three-generation focus of
-                        the Game Boy feature.
+                        the Game Boy feature without interrupting the main
+                        headline or introduction.
                     </td>
+
                     <td>
-                        Appears as inline content in the feature header when
-                        positioning is not applied.
+                        Appears as an inline-block between the headline and
+                        lede when positioning is not applied.
                     </td>
+
                     <td>
-                        Relative/absolute positioning will anchor the badge to
-                        the header without affecting the primary document flow.
+                        At the 52rem enhancement breakpoint, the feature header
+                        becomes the positioned parent and the badge uses
+                        absolute positioning with logical inset properties to
+                        anchor it to the header's top-right corner.
                     </td>
+
                     <td>
-                        The feature header will establish the containing block.
-                        Layer behavior will be documented when the layer system
-                        is implemented.
+                        The feature header uses position: relative and
+                        establishes the containing block for the absolutely
+                        positioned badge. Its stacking behavior will be
+                        documented when the L4 layer system is implemented.
                     </td>
+
                     <td>
-                        Without absolute positioning, the badge remains readable
-                        in normal source order.
+                        Below the 52rem enhancement breakpoint, absolute
+                        positioning disengages and the badge returns to normal
+                        flow. At 52rem and above, it anchors to the feature
+                        header's top-right corner.
                     </td>
+
                     <td>
-                        Test at 320px, 768px, and 1280px widths and at 200% zoom.
-                        Confirm the badge does not cover the title or lede.
+                        Test at 320px, 768px, and 1280px widths and at 200%
+                        zoom. Test immediately below and above the 52rem
+                        breakpoint. Confirm the badge never covers the title
+                        or lede.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Sticky generation story guide</td>
+
+                    <td>
+                        Keeps navigation to the four Game Boy story sections
+                        available while the reader moves through the longer
+                        feature.
+                    </td>
+
+                    <td>
+                        Appears before the article as a normal-flow navigation
+                        block when the page uses its single-column layout.
+                    </td>
+
+                    <td>
+                        At the 52rem breakpoint, CSS Grid creates a dedicated
+                        navigation column beside the article. The story guide
+                        then uses position: sticky with a logical block-start
+                        offset so the navigation remains available while the
+                        article scrolls.
+                    </td>
+
+                    <td>
+                        The story guide occupies the first column of the main
+                        grid and uses align-self: start. Its sticky movement is
+                        constrained by the main content area. Layer behavior
+                        will be documented during L4.
+                    </td>
+
+                    <td>
+                        Below the 52rem breakpoint, the grid and sticky
+                        positioning disengage. The story guide returns to
+                        normal document flow above the article.
+                    </td>
+
+                    <td>
+                        Test at 320px, 768px, and 1280px widths. At desktop
+                        width, scroll through the article and confirm the guide
+                        remains visible without covering article content.
+                        Confirm all four links remain keyboard accessible and
+                        clickable. At narrow widths, confirm the guide remains
+                        in normal flow.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Overlapping pull quote</td>
+
+                    <td>
+                        Emphasizes the feature's central idea that the Game
+                        Boy's technical limitations contributed to its visual
+                        identity and lasting appeal.
+                    </td>
+
+                    <td>
+                        Appears as an emphasized paragraph within the original
+                        Game Boy section. It remains completely inside the
+                        article column with no overlap at narrow widths.
+                    </td>
+
+                    <td>
+                        At the 52rem breakpoint, a negative inline-start margin
+                        pulls the quote across the 3rem grid gutter and
+                        approximately 1rem into the adjacent story-guide
+                        column. Relative positioning prepares the quote for the
+                        controlled stacking relationship documented in L4.
+                    </td>
+
+                    <td>
+                        The pull quote remains part of the article's normal
+                        flow. Position: relative prepares it for an explicit
+                        z-index relationship in L4 without removing it from
+                        document flow.
+                    </td>
+
+                    <td>
+                        Below the 52rem breakpoint, the negative margin and
+                        relative positioning are not applied. The quote returns
+                        to its normal single-column presentation.
+                    </td>
+
+                    <td>
+                        Test at 320px, 768px, and 1280px widths and at 200%
+                        zoom. At desktop width, confirm the quote visibly
+                        crosses the gutter but does not obscure the story
+                        guide's link text or prevent any link from being
+                        clicked. Test immediately below and above the 52rem
+                        breakpoint.
                     </td>
                 </tr>
 
                 <tr>
                     <td>Game Boy Advance shape-wrapped image</td>
+
                     <td>
-                        Provides visual support for the Game Boy Advance section
-                        while allowing editorial text to flow around the media.
+                        Provides visual support for the Game Boy Advance
+                        section while creating an editorial relationship
+                        between the media and surrounding story text.
                     </td>
+
                     <td>
-                        Displays as a normal responsive block image before the
-                        shape enhancement is applied.
+                        Displays as a normal responsive block image above the
+                        surrounding text before the shape enhancement is
+                        applied.
                     </td>
+
                     <td>
-                        The image itself will float at supported wider
-                        viewports. Shape-outside and shape-margin will create a
-                        controlled editorial text wrap around the image.
+                        At a supported wider viewport, the image itself will
+                        float inline-start. Shape-outside and shape-margin will
+                        progressively enhance the rectangular float so article
+                        text follows a deliberate shape around the media.
                     </td>
+
                     <td>
-                        The image participates in the article section's flow.
-                        The section will contain the float so later content does
-                        not unexpectedly wrap around it.
+                        The image participates in the Game Boy Advance
+                        section's flow. The section will contain the float so
+                        later sections cannot unexpectedly wrap around it. Any
+                        stacking requirements will be documented if they are
+                        introduced during implementation.
                     </td>
+
                     <td>
-                        At narrow widths or without shape-outside support, the
-                        image returns to normal block flow and the text remains
-                        readable beneath it.
+                        At narrow widths or when shape-outside is unsupported,
+                        the float and shape enhancement will disengage. The
+                        image will remain a responsive block element and the
+                        article text will continue beneath it in source order.
                     </td>
+
                     <td>
-                        Test with shape-outside enabled and disabled, at 320px,
-                        768px, and 1280px widths, and with increased text size.
-                        Confirm text never collides with the image or credit.
+                        Test with shape-outside enabled and disabled and at
+                        320px, 768px, and 1280px widths. Test at 200% zoom and
+                        with increased text size. Confirm text never collides
+                        with the image or its credit and that later sections
+                        clear the floated media correctly.
                     </td>
                 </tr>
             </tbody>

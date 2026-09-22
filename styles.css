@@ -314,3 +314,67 @@ figcaption,
 .documentation h2 {
     font-size: var(--text-2xl);
 }
+
+/* L3 · Positioned relationships */
+
+
+/* 1. Anchored header badge */
+
+.feature-header {
+    position: relative;
+}
+
+.issue-badge {
+    position: absolute;
+    inset-block-start: var(--space-4);
+    inset-inline-end: var(--space-4);
+}
+
+
+/* 2. Responsive editorial layout
+   Positioning enhancements only engage when enough
+   horizontal space is available. */
+
+@media (min-width: 52rem) {
+    main {
+        display: grid;
+        grid-template-columns: 14rem minmax(0, 1fr);
+        gap: var(--space-7);
+        align-items: start;
+    }
+
+    .story-guide {
+        position: sticky;
+        inset-block-start: var(--space-4);
+        align-self: start;
+    }
+
+    article {
+        grid-column: 2;
+    }
+
+    .documentation {
+        grid-column: 1 / -1;
+    }
+
+
+
+    /* 3. Controlled pull-quote overlap */
+
+    .pull-quote {
+    /*
+     * Relative positioning prepares the quote for the
+     * controlled layer relationship added in L4.
+     */
+    position: relative;
+    margin-inline-start: -4rem;
+    }
+}
+
+/* Narrow-screen badge disengagement */
+
+@media (max-width: 51.999rem) {
+    .issue-badge {
+        position: static;
+    }
+}
