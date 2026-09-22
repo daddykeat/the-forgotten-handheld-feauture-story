@@ -239,48 +239,53 @@
                 </tr>
 
                 <tr>
-                    <td>Game Boy Advance shape-wrapped image</td>
+                    <td>Game Boy Advance shape-wrapped figure</td>
 
                     <td>
-                        Provides visual support for the Game Boy Advance
-                        section while creating an editorial relationship
+                        Keeps the Game Boy Advance image and its caption
+                        together while creating an editorial relationship
                         between the media and surrounding story text.
                     </td>
 
                     <td>
-                        Displays as a normal responsive block image above the
-                        surrounding text before the shape enhancement is
-                        applied.
+                        Displays as a normal responsive figure containing the
+                        image followed by its caption. At narrow widths, the
+                        complete figure remains in normal document flow above
+                        the surrounding prose.
                     </td>
 
                     <td>
-                        At a supported wider viewport, the image itself will
-                        float inline-start. Shape-outside and shape-margin will
-                        progressively enhance the rectangular float so article
-                        text follows a deliberate shape around the media.
+                        At the 52rem enhancement breakpoint, the complete
+                        figure floats inline-start. When shape-outside is
+                        supported, an inset shape with shape-margin creates
+                        additional breathing room between the floated media
+                        and surrounding prose while keeping the image and its
+                        caption together as one semantic unit.
                     </td>
 
                     <td>
-                        The image participates in the Game Boy Advance
-                        section's flow. The section will contain the float so
-                        later sections cannot unexpectedly wrap around it. Any
-                        stacking requirements will be documented if they are
-                        introduced during implementation.
+                        The floated figure remains inside the Game Boy Advance
+                        section's formatting context. The section uses
+                        display: flow-root to contain the float so the
+                        following section cannot unexpectedly wrap around it.
+                        No custom z-index is required.
                     </td>
 
                     <td>
-                        At narrow widths or when shape-outside is unsupported,
-                        the float and shape enhancement will disengage. The
-                        image will remain a responsive block element and the
-                        article text will continue beneath it in source order.
+                        Below 52rem, the float and shape enhancement disengage
+                        and the complete figure returns to normal block flow.
+                        At wider widths without shape-outside support, the
+                        figure remains a usable rectangular float with its
+                        caption still attached.
                     </td>
 
                     <td>
-                        Test with shape-outside enabled and disabled and at
-                        320px, 768px, and 1280px widths. Test at 200% zoom and
-                        with increased text size. Confirm text never collides
-                        with the image or its credit and that later sections
-                        clear the floated media correctly.
+                        Test at 320px, 768px, and 1280px and at 200% zoom.
+                        Disable shape-outside and confirm the rectangular
+                        floated figure remains readable. Confirm the caption
+                        remains associated with the image, surrounding prose
+                        does not collide with either, and the Why We Still
+                        Play section begins below the contained float.
                     </td>
                 </tr>
             </tbody>

@@ -396,3 +396,64 @@ figcaption,
         position: static;
     }
 }
+
+
+/* =========================================================
+   L5 · Shapes and fallback
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Clip-path enhancement
+   The feature image remains rectangular if unsupported.
+   --------------------------------------------------------- */
+
+@supports (clip-path: polygon(0 0)) {
+    .feature-figure img {
+        clip-path: polygon(
+            0 0,
+            calc(100% - 1.5rem) 0,
+            100% 1.5rem,
+            100% 100%,
+            1.5rem 100%,
+            0 calc(100% - 1.5rem)
+        );
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Editorial shape wrap
+   Only engages when there is enough horizontal space.
+   --------------------------------------------------------- */
+
+@media (min-width: 52rem) {
+    #advance-generation {
+        display: flow-root;
+    }
+
+    .shape-portrait {
+        float: inline-start;
+        width: min(42%, 20rem);
+        margin-block: 0 var(--space-5);
+        margin-inline: 0 var(--space-5);
+    }
+
+    .shape-portrait img {
+        width: 100%;
+    }
+
+    .shape-portrait figcaption {
+        margin-block-start: var(--space-3);
+        color: var(--color-text-muted);
+        font-size: var(--text-sm);
+        line-height: 1.5;
+    }
+
+    @supports (shape-outside: inset(0)) {
+        .shape-portrait {
+            shape-outside: inset(0);
+            shape-margin: var(--space-4);
+        }
+    }
+}
