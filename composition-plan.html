@@ -43,6 +43,16 @@
             updated as each enhancement is implemented and tested.
         </p>
 
+        <p>
+            <strong>Implementation note:</strong>
+            Testing showed that the shaped media treatment required more
+            horizontal space than the primary two-column layout. The page grid
+            therefore begins at 52rem, while the Game Boy Advance float and
+            shape-outside enhancement begin at 68rem. This keeps the enhancement
+            content-driven and prevents narrow text wrapping near the primary
+            layout breakpoint.
+        </p>
+
         <table>
             <thead>
                 <tr>
@@ -242,50 +252,55 @@
                     <td>Game Boy Advance shape-wrapped figure</td>
 
                     <td>
-                        Keeps the Game Boy Advance image and its caption
-                        together while creating an editorial relationship
-                        between the media and surrounding story text.
+                        Creates an editorial relationship between the Game Boy Advance
+                        media and the opening paragraph while keeping the image and its
+                        caption together as one semantic figure.
                     </td>
 
                     <td>
-                        Displays as a normal responsive figure containing the
-                        image followed by its caption. At narrow widths, the
-                        complete figure remains in normal document flow above
-                        the surrounding prose.
+                        The figure and caption remain in normal document flow by default.
+                        The shaped treatment does not engage until the article has enough
+                        horizontal space to support it without reducing the prose to
+                        excessively narrow lines.
                     </td>
 
                     <td>
-                        At the 52rem enhancement breakpoint, the complete
-                        figure floats inline-start. When shape-outside is
-                        supported, an inset shape with shape-margin creates
-                        additional breathing room between the floated media
-                        and surrounding prose while keeping the image and its
-                        caption together as one semantic unit.
+                        At 68rem and wider, the figure floats inline-start. A shared
+                        length-valued --portrait-size controls both the figure width and
+                        the circular shape geometry. The circle's radius and center are
+                        calculated from half of that length so the wrapping boundary
+                        corresponds to the square image region at the top of the taller
+                        figure rather than being distorted by the caption height.
                     </td>
 
                     <td>
-                        The floated figure remains inside the Game Boy Advance
-                        section's formatting context. The section uses
-                        display: flow-root to contain the float so the
-                        following section cannot unexpectedly wrap around it.
-                        No custom z-index is required.
+                        The Game Boy Advance section establishes a flow-root formatting
+                        context to contain the floated figure. The first paragraph wraps
+                        around the circular shape. The following paragraph uses
+                        clear: inline-start so it begins below the complete figure,
+                        including its caption. No z-index is required.
                     </td>
 
                     <td>
-                        Below 52rem, the float and shape enhancement disengage
-                        and the complete figure returns to normal block flow.
-                        At wider widths without shape-outside support, the
-                        figure remains a usable rectangular float with its
-                        caption still attached.
+                        Below 68rem, the figure remains in normal flow and the prose
+                        remains fully readable without shape-outside. At 52rem the
+                        overall two-column layout and sticky guide may still engage
+                        independently. If shape-outside is unsupported at wider widths,
+                        the floated figure falls back to ordinary rectangular float
+                        wrapping.
                     </td>
 
-                    <td>
-                        Test at 320px, 768px, and 1280px and at 200% zoom.
-                        Disable shape-outside and confirm the rectangular
-                        floated figure remains readable. Confirm the caption
-                        remains associated with the image, surrounding prose
-                        does not collide with either, and the Why We Still
-                        Play section begins below the contained float.
+                     <td>
+                        Test at 320px, 768px, 840px, and 1280px widths and at
+                        200% zoom. Test immediately below and above the 68rem
+                        enhancement breakpoint to confirm the figure changes cleanly
+                        from normal flow to the floated circular wrap. At 840px,
+                        confirm the figure remains in normal flow. At 1280px, confirm
+                        the first paragraph follows the circular wrap, the caption
+                        does not collide with prose, the cleared paragraph begins
+                        below the complete figure, and the following section is not
+                        affected by the float. Disable shape-outside to verify a
+                        usable rectangular-float fallback.
                     </td>
                 </tr>
             </tbody>

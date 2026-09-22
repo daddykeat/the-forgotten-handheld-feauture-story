@@ -427,32 +427,44 @@ figcaption,
    Only engages when there is enough horizontal space.
    --------------------------------------------------------- */
 
-@media (min-width: 52rem) {
+
+/* Enhanced editorial shape treatment */
+@media (min-width: 68rem) {
     #advance-generation {
         display: flow-root;
     }
 
     .shape-portrait {
+        --portrait-size: min(42vw, 20rem);
+
         float: inline-start;
-        width: min(42%, 20rem);
+        width: var(--portrait-size);
         margin-block: 0 var(--space-5);
         margin-inline: 0 var(--space-5);
     }
 
     .shape-portrait img {
+        display: block;
         width: 100%;
+        height: auto;
     }
 
     .shape-portrait figcaption {
-        margin-block-start: var(--space-3);
-        color: var(--color-text-muted);
-        font-size: var(--text-sm);
-        line-height: 1.5;
+    line-height: 1.5;
+}
+
+    .clear-shaped-media {
+        clear: inline-start;
     }
 
-    @supports (shape-outside: inset(0)) {
+    @supports (shape-outside: circle(1rem at 1rem 1rem)) {
         .shape-portrait {
-            shape-outside: inset(0);
+            shape-outside: circle(
+                calc(var(--portrait-size) / 2)
+                at
+                calc(var(--portrait-size) / 2)
+                calc(var(--portrait-size) / 2)
+            );
             shape-margin: var(--space-4);
         }
     }
