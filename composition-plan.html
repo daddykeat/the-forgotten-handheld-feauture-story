@@ -3,136 +3,120 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>The Forgotten Handheld: Why the Game Boy Still Matters</title>
-        <link rel="stylesheet" href="styles.css">
+        <title>Composition Plan</title>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.5;
+                max-width: 90rem;
+                margin: auto;
+                padding: 1rem;
+                color: #191919;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            th,
+            td {
+                padding: .6rem;
+                border: 1px solid #999;
+                text-align: left;
+                vertical-align: top;
+            }
+
+            th {
+                background: #f1f1f1;
+            }
+        </style>
     </head>
 
     <body>
-        <header class="feature-header">
-            <p class="eyebrow">L1 · Story and Source Order</p>
+        <h1>L6 · Composition Plan</h1>
 
-            <h1>The Forgotten Handheld: Why the Game Boy Still Matters</h1>
+        <p>
+            Complete one row for every positioned, layered, clipped, rounded,
+            or shape-wrapped element. Duplicate rows as needed.
+        </p>
 
-            <span class="issue-badge">1989–2000s · Three Generations</span>
+        <table>
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Content purpose</th>
+                    <th>Normal-flow baseline</th>
+                    <th>Chosen technique and why</th>
+                    <th>Containing block / stacking context</th>
+                    <th>Fallback or disengagement</th>
+                    <th>Required test</th>
+                </tr>
+            </thead>
 
-            <p class="lede">
-                [TODO: Write the feature introduction after research and source
-                verification.]
-            </p>
-        </header>
+            <tbody>
+                <tr>
+                    <td>Header generation badge</td>
+                    <td>
+                        Identifies the time span and three-generation focus of
+                        the Game Boy feature.
+                    </td>
+                    <td>
+                        Appears as inline content in the feature header when
+                        positioning is not applied.
+                    </td>
+                    <td>
+                        Relative/absolute positioning will anchor the badge to
+                        the header without affecting the primary document flow.
+                    </td>
+                    <td>
+                        The feature header will establish the containing block.
+                        Layer behavior will be documented when the layer system
+                        is implemented.
+                    </td>
+                    <td>
+                        Without absolute positioning, the badge remains readable
+                        in normal source order.
+                    </td>
+                    <td>
+                        Test at 320px, 768px, and 1280px widths and at 200% zoom.
+                        Confirm the badge does not cover the title or lede.
+                    </td>
+                </tr>
 
-        <main>
-            <aside class="story-guide">
-                <h2>In This Story</h2>
-
-                <nav aria-label="Feature story sections">
-                    <a href="#built-around-limitations">
-                        Built Around Limitations
-                    </a>
-                    <a href="#gray-to-color">
-                        From Gray to Color
-                    </a>
-                    <a href="#advance-generation">
-                        The Advance Generation
-                    </a>
-                    <a href="#why-we-still-play">
-                        Why We Still Play
-                    </a>
-                </nav>
-            </aside>
-
-            <article>
-                <section id="built-around-limitations">
-                    <p class="eyebrow">L2 · Flow and Layout Foundation</p>
-
-                    <h2>Built Around Limitations</h2>
-
-                    <figure class="feature-figure">
-                        <img
-                            src="feature.svg"
-                            alt="Placeholder artwork to be replaced with final Game Boy media"
-                            width="1000"
-                            height="700"
-                        >
-                        <figcaption>
-                            [PLACEHOLDER: Starter image. Final image, caption,
-                            credit, and source will be added later.]
-                        </figcaption>
-                    </figure>
-
-                    <p>
-                        [TODO: Write section about the original Game Boy after
-                        research and source verification.]
-                    </p>
-
-                    <blockquote class="pull-quote">
-                        [TODO: Add a short, properly attributed quotation after
-                        research.]
-                    </blockquote>
-                </section>
-
-                <section id="gray-to-color">
-                    <p class="eyebrow">L3 · Positioned Relationships</p>
-
-                    <h2>From Gray to Color</h2>
-
-                    <p>
-                        [TODO: Write section about the Game Boy Color after
-                        research and source verification.]
-                    </p>
-                </section>
-
-                <section id="advance-generation">
-                    <p class="eyebrow">L4 · Layer System</p>
-
-                    <h2>The Advance Generation</h2>
-
-                    <img
-                        class="shape-portrait"
-                        src="portrait.svg"
-                        alt="Placeholder artwork to be replaced with final Game Boy Advance media"
-                        width="600"
-                        height="600"
-                    >
-
-                    <p class="media-credit">
-                        [PLACEHOLDER: Starter image. Final image, caption,
-                        credit, and source will be added later.]
-                    </p>
-
-                    <p>
-                        [TODO: Write section about the Game Boy Advance after
-                        research and source verification.]
-                    </p>
-                </section>
-
-                <section id="why-we-still-play">
-                    <p class="eyebrow">L5 · Shapes and Fallback</p>
-
-                    <h2>Why We Still Play</h2>
-
-                    <p>
-                        [TODO: Write section about collecting, preservation,
-                        physical media, nostalgia, and the Game Boy's continuing
-                        appeal after research and source verification.]
-                    </p>
-
-                    <p>
-                        [TODO: Write the conclusion connecting the three
-                        generations and the Game Boy family's lasting influence.]
-                    </p>
-                </section>
-            </article>
-
-            <section class="documentation">
-                <h2>L6 · Documentation and Testing</h2>
-
-                <p>
-                    [TODO: Add composition planning, support and fallback
-                    research, test results, asset credits, content attribution,
-                    and AI disclosure as the project develops.]
-                </p>
-            </section>
-        </main>
+                <tr>
+                    <td>Game Boy Advance shape-wrapped image</td>
+                    <td>
+                        Provides visual support for the Game Boy Advance section
+                        while allowing editorial text to flow around the media.
+                    </td>
+                    <td>
+                        Displays as a normal responsive block image before the
+                        shape enhancement is applied.
+                    </td>
+                    <td>
+                        The image itself will float at supported wider
+                        viewports. Shape-outside and shape-margin will create a
+                        controlled editorial text wrap around the image.
+                    </td>
+                    <td>
+                        The image participates in the article section's flow.
+                        The section will contain the float so later content does
+                        not unexpectedly wrap around it.
+                    </td>
+                    <td>
+                        At narrow widths or without shape-outside support, the
+                        image returns to normal block flow and the text remains
+                        readable beneath it.
+                    </td>
+                    <td>
+                        Test with shape-outside enabled and disabled, at 320px,
+                        768px, and 1280px widths, and with increased text size.
+                        Confirm text never collides with the image or credit.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>
