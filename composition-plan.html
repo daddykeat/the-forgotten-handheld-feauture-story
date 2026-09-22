@@ -81,8 +81,8 @@
                     <td>
                         The feature header uses position: relative and
                         establishes the containing block for the absolutely
-                        positioned badge. Its stacking behavior will be
-                        documented when the L4 layer system is implemented.
+                        positioned badge. The badge does not receive a z-index
+                        because no competing layer overlaps it.
                     </td>
 
                     <td>
@@ -124,9 +124,11 @@
 
                     <td>
                         The story guide occupies the first column of the main
-                        grid and uses align-self: start. Its sticky movement is
-                        constrained by the main content area. Layer behavior
-                        will be documented during L4.
+                        grid and uses position: sticky with
+                        z-index: var(--layer-sticky). This places the
+                        interactive navigation above the overlapping pull
+                        quote so its links remain visible and pointer
+                        accessible.
                     </td>
 
                     <td>
@@ -162,23 +164,25 @@
 
                     <td>
                         At the 52rem breakpoint, a negative inline-start margin
-                        pulls the quote across the 3rem grid gutter and
-                        approximately 1rem into the adjacent story-guide
-                        column. Relative positioning prepares the quote for the
-                        controlled stacking relationship documented in L4.
+                        pulls the quote across the grid gutter and slightly
+                        into the adjacent story-guide column. Relative
+                        positioning allows the quote to participate in the
+                        controlled L4 stacking relationship.
                     </td>
 
                     <td>
                         The pull quote remains part of the article's normal
-                        flow. Position: relative prepares it for an explicit
-                        z-index relationship in L4 without removing it from
-                        document flow.
+                        flow. Position: relative allows
+                        z-index: var(--layer-raised) to place the quote above
+                        ordinary page content while keeping it below the
+                        interactive sticky story guide.
                     </td>
 
                     <td>
-                        Below the 52rem breakpoint, the negative margin and
-                        relative positioning are not applied. The quote returns
-                        to its normal single-column presentation.
+                        Below the 52rem breakpoint, the negative margin,
+                        relative positioning, and raised layer are not applied.
+                        The quote returns to its normal single-column
+                        presentation.
                     </td>
 
                     <td>
@@ -188,6 +192,49 @@
                         guide's link text or prevent any link from being
                         clicked. Test immediately below and above the 52rem
                         breakpoint.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Decorative header pixel accent</td>
+
+                    <td>
+                        Adds a small Game Boy-inspired visual detail to the
+                        feature header without communicating information.
+                    </td>
+
+                    <td>
+                        The decoration does not exist in the HTML source, so
+                        removing it has no effect on content, semantics, or
+                        reading order.
+                    </td>
+
+                    <td>
+                        A generated ::after pseudo-element is absolutely
+                        positioned along the bottom edge of the feature header.
+                        Because the accent is purely decorative,
+                        pointer-events: none prevents it from intercepting
+                        pointer interaction.
+                    </td>
+
+                    <td>
+                        The feature header establishes the pseudo-element's
+                        containing block. No custom z-index is needed because
+                        the decoration does not participate in a competing
+                        overlap relationship.
+                    </td>
+
+                    <td>
+                        If generated content, positioning, or CSS is
+                        unsupported or disabled, the accent simply disappears.
+                        No information or functionality is lost.
+                    </td>
+
+                    <td>
+                        Confirm the decoration does not cover header text or
+                        the generation badge. Verify pointer interaction with
+                        nearby content is unaffected and confirm the page
+                        remains complete with CSS disabled.
                     </td>
                 </tr>
 
