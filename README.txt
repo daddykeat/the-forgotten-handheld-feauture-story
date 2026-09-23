@@ -90,6 +90,7 @@ Additional documentation includes:
 - Support and Fallback Record
 - Test Record
 - Media Credits
+-AI Disclosure
 
 These records document the design decisions, browser-support strategy, fallback behavior, accessibility testing, and final validation of the project.
 
