@@ -116,6 +116,19 @@ img {
     height: auto;
 }
 
+/* Accessible visually hidden content */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 figure {
     margin: 0;
 }
@@ -289,7 +302,8 @@ article section {
    Shape and clipping enhancements come later.
    --------------------------------------------------------- */
 
-.feature-figure {
+.feature-figure,
+.color-figure {
     max-width: var(--measure-text);
     margin-block: var(--space-6);
     padding: var(--space-3);
@@ -298,8 +312,13 @@ article section {
     background: var(--color-surface-raised);
 }
 
-.feature-figure img {
-    width: 100%;
+.feature-figure img,
+.color-figure img {
+  display: block;
+  width: 100%;
+  height: 28rem;
+  object-fit: contain;
+  object-position: center;
 }
 
 figcaption,
@@ -435,7 +454,7 @@ figcaption,
     }
 
     .shape-portrait {
-        --portrait-size: min(42vw, 20rem);
+        --portrait-size: min(36vw, 17rem);
 
         float: inline-start;
         width: var(--portrait-size);
