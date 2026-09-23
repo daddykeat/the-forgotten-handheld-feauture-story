@@ -107,8 +107,49 @@
 
 ## Image and Media Credits
 
-The current project uses placeholder artwork supplied during development.
+### Original Nintendo Game Boy (DMG-01)
 
-Final image titles, creators, source URLs, licenses or usage information,
-and required attribution will be documented here when the placeholder
-artwork is replaced.
+**Used for:**
+
+- Feature image in "Built Around Limitations"
+- Visual representation of the original Game Boy hardware
+
+**Image:** Original Nintendo Game Boy (DMG-01)  
+**Creator:** Evan-Amos  
+**Source:** Wikimedia Commons — Game-Boy-Original.jpg  
+**URL:** https://commons.wikimedia.org/wiki/File:Game-Boy-Original.jpg  
+**License:** Public domain  
+**Accessed:** September 23, 2026
+
+---
+
+### Atomic Purple Nintendo Game Boy Color
+
+**Used for:**
+
+- Feature image in "From Gray to Color"
+- Visual representation of the Game Boy Color generation
+
+**Image:** Atomic Purple Nintendo Game Boy Color  
+**Creator:** Evan-Amos  
+**Source:** Wikimedia Commons — Nintendo-Game-Boy-Color-FL.jpg  
+**URL:** https://commons.wikimedia.org/wiki/File:Nintendo-Game-Boy-Color-FL.jpg  
+**License:** Public domain  
+**Accessed:** September 23, 2026
+
+---
+
+### Indigo Nintendo Game Boy Advance
+
+**Used for:**
+
+- Shaped figure in "The Advance Generation"
+- Visual representation of the original Game Boy Advance hardware
+- Media used for the `shape-outside` text-wrap treatment
+
+**Image:** Indigo Nintendo Game Boy Advance  
+**Creator:** Evan-Amos  
+**Source:** Wikimedia Commons — Nintendo-Game-Boy-Advance-Purple-FL.jpg  
+**URL:** https://commons.wikimedia.org/wiki/File:Nintendo-Game-Boy-Advance-Purple-FL.jpg  
+**License:** Public domain  
+**Accessed:** September 23, 2026
